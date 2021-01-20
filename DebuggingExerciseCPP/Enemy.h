@@ -14,6 +14,6 @@ public:
     /// </summary>
     /// <param name="other">The other character to attack.</param>
     /// <returns>The total damage dealt.</returns>
-    virtual float attack(Character* other);
+    float attack(Character* other) override;
 };
 

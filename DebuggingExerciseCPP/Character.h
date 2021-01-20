@@ -24,9 +24,13 @@ public:
 	virtual float attack(Character* other);
 
 	virtual const char* getName() { return m_name; }
+	void setName(const char* value) { m_name = value; }
 	virtual float getHealth() { return m_health; }
+	void setHealth(float value) { m_health = value; }
 	virtual float getDamage() { return m_damage; }
+	void setDamage(float value) { m_damage = value; }
 	virtual float getDefense() { return m_defense; }
+	void setDefense(float value) { m_defense = value; }
 
 private:
 	const char* m_name = new char();

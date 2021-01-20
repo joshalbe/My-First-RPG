@@ -2,19 +2,18 @@
 #include "Item.h"
 #include "Character.h"
 
-class Player :
+class Player : public
      Character
 {
 public:
     Player() : Character() {}
-    Player(const char* name, float health, float damage, float defense) :
-        Character(name, health, damage, defense);
+    Player(const char* name, float health, float damage, float defense);
 
     /// <summary>
     /// Adds the given item's stat boost to this player's total damage.
     /// </summary>
     /// <param name="item">The players new weapon.</param>
-    void equipWeapon(Item item);
+    void equipWeapon(Item item) { m_weapon = item; };
 
     /// <summary>
     /// Adds the given item's stat boost to this player's total defense.
@@ -31,7 +30,7 @@ public:
     /// </summary>
     /// <param name="damage">The damage to deal to the player.</param>
     /// <returns>The total damage the player took.</returns>
-    virtual float takeDamage(float damage) override;
+    float takeDamage(float damage) override;
 
     /// <summary>
     /// Calls the takeDamage function for the given character and passes in the player's damage value.
@@ -39,13 +38,13 @@ public:
     /// </summary>
     /// <param name="other">The character to attack.</param>
     /// <returns>The total damage dealt.</returns>
-    virtual float attack(Character* other) override;
+    float attack(Character* other) override;
     
     /// <returns>The player's base damage combined with the weapon stat boost.</returns>
-    virtual float getDamage() override;
+    float getDamage() override;
     
     /// <returns>The player's base defense combined with the shield stat boost.</returns>
-    virtual float getDefense() override;
+    float getDefense() override;
 
 private:
     Item m_weapon;

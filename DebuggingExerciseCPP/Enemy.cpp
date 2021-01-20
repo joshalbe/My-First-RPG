@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include "Enemy.h"
 
+Enemy::Enemy(const char* name, float health, float damage, float defense) :
+    Character(name, health, damage, defense)
+{
+    setName(name);
+    setHealth(health);
+    setDamage(damage);
+    setDefense(defense);
+}
+
 float Enemy::attack(Character* other)
 {
     /* initialize random seed: */
@@ -9,5 +18,5 @@ float Enemy::attack(Character* other)
     /* generate secret number between 1 and 10: */
     float randomDamage = rand() % 10 + 1;
 
-    return takeDamage(getDamage + randomDamage);
+    return takeDamage(getDamage() + randomDamage);
 }
