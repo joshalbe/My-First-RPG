@@ -14,13 +14,13 @@ Character::Character(const char* name, float health, float damage, float defense
 
 float Character::takeDamage(float damage)
 {
-	float totalDamage = damage - m_defense;
+	float totalDamage = damage - getDefense();
 	
 	if (totalDamage < 0)
 		totalDamage = 0;
 
-	m_health -= totalDamage;
-	return damage;
+	setHealth(getHealth() - totalDamage);
+	return totalDamage;
 }
 
 float Character::attack(Character* other)

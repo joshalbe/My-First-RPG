@@ -15,9 +15,9 @@ Player::Player(const char* name, float health, float damage, float defense) :
 
 float Player::takeDamage(float damage)
 {
-    float totalDamage = damage - m_shield.getStatusBoost();
+    //float totalDamage = damage - m_shield.getStatusBoost();
 
-    return takeDamage(totalDamage);
+    return Character::takeDamage(damage);
 }
 
 float Player::attack(Character* other)
