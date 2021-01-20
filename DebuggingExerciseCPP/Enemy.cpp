@@ -18,5 +18,5 @@ float Enemy::attack(Character* other)
     /* generate secret number between 1 and 10: */
     float randomDamage = rand() % 10 + 1;
 
-    return takeDamage(getDamage() + randomDamage);
+    return other->takeDamage(getDamage() + randomDamage);
 }
